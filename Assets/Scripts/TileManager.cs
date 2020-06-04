@@ -6,15 +6,15 @@ public class TileManager : MonoBehaviour{
 
     public GameObject [] tilePrefabs;
     private Transform playerTransform;
-    private float spawnZ = -12.0f;//------------------------------------------- The value is negative so the camera doesn't see the empty space at the beginning of the run.
+    private float spawnZ = -6.0f;//------------------------------------------- The value is negative so the camera doesn't see the empty space at the beginning of the run.
     private float tileLength = 10.0f;
     private float safeZone = 15.0f;
     private int amtOfTilesOnScreen = 7;
     private int lastPrefabIndex = 0;
-    private List<GameObject> activeTiles;
+    private List<GameObject> activeTiles;//------------------------------------- List to hold the tiles currently on display.
 
     void Start(){
-        activeTiles = new List<GameObject>();
+        activeTiles = new List<GameObject>();//--------------------------------- Before using a list in c#, it has to be instantiated.
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
         for(int i = 0; i < amtOfTilesOnScreen ; i++){//------------------------- Spawning the first set of 7 tiles.
@@ -27,7 +27,7 @@ public class TileManager : MonoBehaviour{
     }
 
     void Update(){
-        if(playerTransform.position.z - safeZone> (spawnZ - amtOfTilesOnScreen * tileLength)){
+        if(playerTransform.position.z - safeZone > (spawnZ - amtOfTilesOnScreen * tileLength)){
             SpawnTile();
             DeleteTile();
         }
@@ -44,7 +44,7 @@ public class TileManager : MonoBehaviour{
        
         go.transform.SetParent (transform);//------------------------------------ Setting the new tile to the position of it's parent which is the tile manager.
         go.transform.position = Vector3.forward * spawnZ;
-        spawnZ = spawnZ + tileLength;
+        spawnZ += tileLength;
         activeTiles.Add (go); //------------------------------------------------- Adding the gameObject to the list of active tiles.
     }
 
@@ -54,14 +54,13 @@ public class TileManager : MonoBehaviour{
     }
 
     private int RandomPrefabIndex(){
-        if(tilePrefabs.Length <=1){
+        if(tilePrefabs.Length <=1){ //------------------------------------------- Returning one prefab if it's the only one in the list.
                 return 0;
             }
 
             int randomIndex = lastPrefabIndex;
             while(randomIndex == lastPrefabIndex){ //--------------------------- If the random index chosen is the same as the previous, the while loop is repeated.
-                randomIndex = Random.Range (0, tilePrefabs.Length);
-
+                randomIndex = Random.Range (0, tilePrefabs.Length); //---------- Getting a random index from the list of tiles available as prefabs.
             }
 
             lastPrefabIndex = randomIndex;

@@ -10,7 +10,7 @@ public class PlayerMotor : MonoBehaviour{
     private float speed = 5.0f;
     private float verticalVelocity = 0.0f;
     private float gravity = 12.0f;
-    private float animationDuration = 2.0f; //--------------------------------- Limits how long the animation happens as the run begins.
+    private float animationDuration = 3.0f; //--------------------------------- Limits how long the animation happens as the run begins.
 
     void Start(){
         controller = GetComponent <CharacterController>();
