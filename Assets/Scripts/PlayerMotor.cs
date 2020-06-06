@@ -7,7 +7,7 @@ public class PlayerMotor : MonoBehaviour{
     private CharacterController controller;
     private Vector3 moveVector;
     
-    private float speed = 5.0f;
+    [SerializeField]private float speed = 5.0f;
     private float verticalVelocity = 0.0f;
     private float gravity = 12.0f;
     private float animationDuration = 3.0f; //--------------------------------- Limits how long the animation happens as the run begins.
@@ -41,5 +41,9 @@ public class PlayerMotor : MonoBehaviour{
         moveVector.z = speed;
 
         controller.Move(moveVector * Time.deltaTime);//---------------- Moving the character forward only...... Time.deltaTime is the time between two frames.
+    }
+
+    public void SetSpeed(int modifier){
+        speed = 5.0f + modifier;
     }
 }
