@@ -6,12 +6,16 @@ using UnityEngine.UI;
 public class Score : MonoBehaviour
 {
 
-    private float score = 0.0f;
     private int difficultyLevel = 1;
     private int maxDifficultyLevel = 10;
     private int scoreToNextLevel = 10;
+    
+    private float score = 0.0f;
+
+     private bool isDead = false;
+    
     public Text scoreText;
-    private bool isDead = false;
+   
 
     void Update(){
 

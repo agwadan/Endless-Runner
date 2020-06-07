@@ -13,14 +13,18 @@ public class PlayerMotor : MonoBehaviour{
     private float gravity = 12.0f;
     private float animationDuration = 3.0f; //--------------------------------- Limits how long the animation happens as the run begins.
 
+    private Animator anim;
+
     void Start(){
-        controller = GetComponent <CharacterController>();
+        anim        = GetComponent<Animator>();
+        controller  = GetComponent <CharacterController>();
     }
 
  
     void Update(){
 
         if(isDead){
+            anim.SetBool("run", false);
             return;
         }
 
