@@ -12,12 +12,13 @@ public class PlayerMotor : MonoBehaviour{
     private float verticalVelocity = 0.0f;
     private float gravity = 12.0f;
     private float animationDuration = 3.0f; //--------------------------------- Limits how long the animation happens as the run begins.
-
+    private float startTime;
     private Animator anim;
 
     void Start(){
         anim        = GetComponent<Animator>();
         controller  = GetComponent <CharacterController>();
+        startTime   = Time.time;
     }
 
  
@@ -28,7 +29,7 @@ public class PlayerMotor : MonoBehaviour{
             return;
         }
 
-        if(Time.time < animationDuration){
+        if(Time.time - startTime < animationDuration){
             controller.Move (Vector3.forward * speed * Time.deltaTime);
             return; //--------------------------------------------------------- Return gets it out of the update function preventing the rest of the code from running as the animation is still running.
         }

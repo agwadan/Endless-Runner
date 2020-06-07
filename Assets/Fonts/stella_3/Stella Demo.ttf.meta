@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 6b7ae0d85b323024284c606ce1b4ab5a
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Stella
+  fontNames:
+  - Stella
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 5b45d38f2e9daa445a4fbc5d7e514e3b, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
