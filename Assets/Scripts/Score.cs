@@ -11,9 +11,14 @@ public class Score : MonoBehaviour
     private int maxDifficultyLevel = 10;
     private int scoreToNextLevel = 10;
     public Text scoreText;
+    private bool isDead = false;
 
-    void Update()
-    {
+    void Update(){
+
+        if(isDead){
+            return;
+        }
+
         if(score >= scoreToNextLevel){
             LevelUp();
         }
@@ -30,5 +35,9 @@ public class Score : MonoBehaviour
 
         GetComponent<PlayerMotor>().SetSpeed (difficultyLevel); //------- Calling SetSpeed from PlayerMotor.
         Debug.Log(difficultyLevel);
+    }
+
+    public void OnDeath(){
+        isDead = true;
     }
 }

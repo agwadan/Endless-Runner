@@ -6,6 +6,7 @@ public class PlayerMotor : MonoBehaviour{
 
     private CharacterController controller;
     private Vector3 moveVector;
+    private bool isDead = false;
     
     [SerializeField]private float speed = 5.0f;
     private float verticalVelocity = 0.0f;
@@ -18,6 +19,10 @@ public class PlayerMotor : MonoBehaviour{
 
  
     void Update(){
+
+        if(isDead){
+            return;
+        }
 
         if(Time.time < animationDuration){
             controller.Move (Vector3.forward * speed * Time.deltaTime);
@@ -46,4 +51,16 @@ public class PlayerMotor : MonoBehaviour{
     public void SetSpeed(int modifier){
         speed = 5.0f + modifier;
     }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit){
+        if(hit.point.z > transform.position.z + controller.radius){
+            Death();
+        }
+    }
+
+    private void Death(){
+        isDead = true;
+        GetComponent<Score>().OnDeath();
+    }
+
 }
