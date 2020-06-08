@@ -50,15 +50,15 @@ public class PlayerMotor : MonoBehaviour{
         //*****Z********
         moveVector.z = speed;
 
-        controller.Move(moveVector * Time.deltaTime);//---------------- Moving the character forward only...... Time.deltaTime is the time between two frames.
+        controller.Move(moveVector * Time.deltaTime);//--------------------- Moving the character forward only...... Time.deltaTime is the time between two frames.
     }
 
     public void SetSpeed(int modifier){
         speed = 5.0f + modifier;
     }
 
-    private void OnControllerColliderHit(ControllerColliderHit hit){
-        if(hit.point.z > transform.position.z + controller.radius){
+    private void OnControllerColliderHit(ControllerColliderHit hit){//------ OnControllerColliderHit is a method in the MonoBehavior class to detect collision.
+        if(hit.gameObject.tag == "Enemy"){//------------------------------------ Checking if the object hit has the tag "Enemy".
             Death();
         }
     }
