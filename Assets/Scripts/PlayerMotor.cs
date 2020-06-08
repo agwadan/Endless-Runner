@@ -44,6 +44,15 @@ public class PlayerMotor : MonoBehaviour{
 
         //*****X********
         moveVector.x = Input.GetAxisRaw("Horizontal") * speed;//--------------- GetAxisRaw is sensitive to the gravity of the keys.
+        
+        if(Input.GetMouseButton(0)){
+            if(Input.mousePosition.x > (Screen.width/2)){//-------------------- Checking if the right half of the screen is being touched.
+                moveVector.x = speed;
+            } else {
+                moveVector.x = -speed;
+            }
+        }
+
 
         //*****Y********
         moveVector.y = verticalVelocity;
