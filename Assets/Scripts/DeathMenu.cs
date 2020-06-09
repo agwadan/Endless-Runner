@@ -10,6 +10,7 @@ public class DeathMenu : MonoBehaviour  {
     public Image backgroundImage;
     private bool isShown = false;
     private float transition = 0.0f;
+    
     void Start()    {
         gameObject.SetActive(false);
     }

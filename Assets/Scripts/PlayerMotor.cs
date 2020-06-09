@@ -7,8 +7,8 @@ public class PlayerMotor : MonoBehaviour{
     private CharacterController controller;
     private Vector3 moveVector;
     private bool isDead = false;
-    
-    [SerializeField]private float speed = 5.0f;
+    private float jumpForce = 5.0f;
+    [SerializeField] private float speed = 5.0f;
     private float verticalVelocity = 0.0f;
     private float gravity = 12.0f;
     private float animationDuration = 3.0f; //--------------------------------- Limits how long the animation happens as the run begins.
@@ -16,7 +16,7 @@ public class PlayerMotor : MonoBehaviour{
     private Animator anim;
 
     void Start(){
-        anim        = GetComponent<Animator>();
+        anim        = GetComponent <Animator>();
         controller  = GetComponent <CharacterController>();
         startTime   = Time.time;
     }
@@ -36,8 +36,11 @@ public class PlayerMotor : MonoBehaviour{
 
         moveVector = Vector3.zero;
 
-        if(controller.isGrounded){
-            verticalVelocity = -0.5f;//---------------------------------------- If you're on the floor, then you'll be pushed to the floor even more.
+        if(controller.isGrounded){//------------------------------------------- If you're on the floor, then you'll be pushed to the floor even more.
+            verticalVelocity =- gravity * Time.deltaTime;
+            if(Input.GetKeyDown(KeyCode.Space))
+                verticalVelocity = jumpForce;
+                
         } else {
             verticalVelocity -= gravity * Time.deltaTime;
         }
@@ -66,7 +69,7 @@ public class PlayerMotor : MonoBehaviour{
         speed = 5.0f + modifier;
     }
 
-    private void OnControllerColliderHit(ControllerColliderHit hit){//------ OnControllerColliderHit is a method in the MonoBehavior class to detect collision.
+    private void OnControllerColliderHit(ControllerColliderHit hit){//---------- OnControllerColliderHit is a method in the MonoBehavior class to detect collision.
         if(hit.gameObject.tag == "Enemy"){//------------------------------------ Checking if the object hit has the tag "Enemy".
             Death();
         }

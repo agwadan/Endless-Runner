@@ -987,7 +987,7 @@ GameObject:
   - component: {fileID: 1171136895}
   - component: {fileID: 1171136894}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: CanvasQuiz
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1530,7 +1530,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1862308832
 MonoBehaviour:
   m_ObjectHideFlags: 0
