@@ -37,11 +37,14 @@ public class PlayerMotor : MonoBehaviour{
         moveVector = Vector3.zero;
 
         if(controller.isGrounded){//------------------------------------------- If you're on the floor, then you'll be pushed to the floor even more.
-            verticalVelocity =- gravity * Time.deltaTime;
-            if(Input.GetKeyDown(KeyCode.Space))
+            verticalVelocity = (-gravity) * Time.deltaTime; //----------------- Negative gravity.
+            if(Input.GetKeyDown(KeyCode.Space)){
+                anim.SetBool("jump", true);
                 verticalVelocity = jumpForce;
+            }
                 
         } else {
+            anim.SetBool("jump", false);
             verticalVelocity -= gravity * Time.deltaTime;
         }
 

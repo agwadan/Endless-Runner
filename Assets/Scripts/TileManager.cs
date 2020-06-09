@@ -14,11 +14,11 @@ public class TileManager : MonoBehaviour{
     private List<GameObject> activeTiles;//------------------------------------- List to hold the tiles currently on display.
 
     void Start(){
-        activeTiles = new List<GameObject>();//--------------------------------- Before using a list in c#, it has to be instantiated.
+        activeTiles     = new List<GameObject>();//--------------------------------- Before using a list in c#, it has to be instantiated.
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
         for(int i = 0; i < amtOfTilesOnScreen ; i++){//------------------------- Spawning the first set of 7 tiles.
-            if(i < 2){
+            if(i < 3){
                 SpawnTile(0);
             } else {
                 SpawnTile();
