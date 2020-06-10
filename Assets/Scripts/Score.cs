@@ -49,4 +49,6 @@ public class Score : MonoBehaviour
         }
         deathMenu.ToggleEndMenu(score);
     }
+
+    
 }

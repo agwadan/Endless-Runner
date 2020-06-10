@@ -83,4 +83,10 @@ public class PlayerMotor : MonoBehaviour{
         GetComponent<Score>().OnDeath();
     }
 
+    private void OnTriggerEnter(Collider other){
+        if (other.gameObject.CompareTag("Coin")){
+            other.gameObject.SetActive (false);
+        }
+    }
+
 }
