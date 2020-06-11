@@ -185,6 +185,83 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 34791739}
   m_CullTransparentMesh: 0
+--- !u!1 &328032472
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 328032473}
+  - component: {fileID: 328032475}
+  - component: {fileID: 328032474}
+  m_Layer: 5
+  m_Name: CoinsCounter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &328032473
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328032472}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1862308835}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 132.4, y: -79.152}
+  m_SizeDelta: {x: 196.8, y: 56.1}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &328032474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328032472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: dade799b8d28c3f4c95d159d0edb648d, type: 3}
+    m_FontSize: 26
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: CoinText
+--- !u!222 &328032475
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328032472}
+  m_CullTransparentMesh: 0
 --- !u!1 &424212708
 GameObject:
   m_ObjectHideFlags: 0
@@ -1605,6 +1682,7 @@ RectTransform:
   m_Children:
   - {fileID: 1606712060}
   - {fileID: 2084419479}
+  - {fileID: 328032473}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1901,8 +1979,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 271.8, y: 106.9}
-  m_SizeDelta: {x: 256.5, y: 82.2}
+  m_AnchoredPosition: {x: 311.9, y: 274.87}
+  m_SizeDelta: {x: 142.7, y: 82.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2084419480
 MonoBehaviour:
@@ -2031,6 +2109,16 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 0.21
       objectReference: {fileID: 0}
+    - target: {fileID: 5770632895081463211, guid: 7a6d868f32058f94eb33b49414c16eb5,
+        type: 3}
+      propertyPath: CoinsCounter
+      value: 
+      objectReference: {fileID: 328032474}
+    - target: {fileID: 5770632895081463211, guid: 7a6d868f32058f94eb33b49414c16eb5,
+        type: 3}
+      propertyPath: CoinsCounterText
+      value: 
+      objectReference: {fileID: 328032474}
     - target: {fileID: 5772004982790667988, guid: 7a6d868f32058f94eb33b49414c16eb5,
         type: 3}
       propertyPath: m_LocalPosition.x

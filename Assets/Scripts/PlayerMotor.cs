@@ -1,24 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMotor : MonoBehaviour{
 
     private CharacterController controller;
     private Vector3 moveVector;
+    public Text CoinsCounterText;
     private bool isDead = false;
-    private float jumpForce = 5.0f;
+     private int coinCounter;
     [SerializeField] private float speed = 5.0f;
-    private float verticalVelocity = 0.0f;
-    private float gravity = 12.0f;
-    private float animationDuration = 3.0f; //--------------------------------- Limits how long the animation happens as the run begins.
-    private float startTime;
+    private float   verticalVelocity = 0.0f,
+                    gravity = 12.0f,
+                    animationDuration = 3.0f, /*--------------------------------- Limits how long the animation happens as the run begins.*/
+                    startTime,
+                    jumpForce = 5.0f;
     private Animator anim;
 
     void Start(){
-        anim        = GetComponent <Animator>();
-        controller  = GetComponent <CharacterController>();
-        startTime   = Time.time;
+        
+        CoinsCounterText.text = coinCounter.ToString();
+        anim                  = GetComponent <Animator>();
+        controller            = GetComponent <CharacterController>();
+        startTime             = Time.time;
+        coinCounter           = 0;
+        
     }
 
  
@@ -59,12 +66,11 @@ public class PlayerMotor : MonoBehaviour{
             }
         }
 
-
         //*****Y********
         moveVector.y = verticalVelocity;
+        
         //*****Z********
         moveVector.z = speed;
-
         controller.Move(moveVector * Time.deltaTime);//--------------------- Moving the character forward only...... Time.deltaTime is the time between two frames.
     }
 
@@ -86,6 +92,8 @@ public class PlayerMotor : MonoBehaviour{
     private void OnTriggerEnter(Collider other){
         if (other.gameObject.CompareTag("Coin")){
             other.gameObject.SetActive (false);
+            coinCounter += 1;
+            CoinsCounterText.text = coinCounter.ToString();
         }
     }
 
