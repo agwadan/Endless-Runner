@@ -16,10 +16,8 @@ public class Score : MonoBehaviour
     
     public Text scoreText;
     public DeathMenu deathMenu;
-   
 
     void Update(){
-
         if(isDead){
             return;
         }
@@ -27,6 +25,7 @@ public class Score : MonoBehaviour
         if(score >= scoreToNextLevel){
             LevelUp();
         }
+
         score += Time.deltaTime * difficultyLevel;
         scoreText.text = ((int)score).ToString();//---------------------- The score is truncated to an integer from a float.
     }
@@ -37,7 +36,6 @@ public class Score : MonoBehaviour
         }
         scoreToNextLevel *= 2; //---------------------------------------- Stepping up the criteria for moving to the next level.
         difficultyLevel++;
-
         GetComponent<PlayerMotor>().SetSpeed (difficultyLevel); //------- Calling SetSpeed from PlayerMotor.
         Debug.Log(difficultyLevel);
     }
@@ -47,8 +45,9 @@ public class Score : MonoBehaviour
         if(PlayerPrefs.GetFloat("HighScore") < score){
             PlayerPrefs.SetFloat("HighScore", score);
         }
+        
         deathMenu.ToggleEndMenu(score);
+        int coinNumber = GetComponent<PlayerMotor>().coinCounter;
+        PlayerPrefs.SetInt("CoinsCount", (PlayerPrefs.GetInt("CoinsCount") + coinNumber));//------ Adding the number of coins to the already stored number of coins.
     }
-
-    
 }

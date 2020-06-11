@@ -9,7 +9,7 @@ public class PlayerMotor : MonoBehaviour{
     private Vector3 moveVector;
     public Text CoinsCounterText;
     private bool isDead = false;
-     private int coinCounter;
+     public int coinCounter;
     [SerializeField] private float speed = 5.0f;
     private float   verticalVelocity = 0.0f,
                     gravity = 12.0f,
@@ -96,5 +96,4 @@ public class PlayerMotor : MonoBehaviour{
             CoinsCounterText.text = coinCounter.ToString();
         }
     }
-
 }

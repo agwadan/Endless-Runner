@@ -6,9 +6,11 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour{
 
-    public Text highScoreText;
+    public Text highScoreText,
+                coinsText;
     void Start()    {
         highScoreText.text = "HighScore: " + ((int)PlayerPrefs.GetFloat("HighScore"));
+        coinsText.text     = "Coins: " + (PlayerPrefs.GetInt("CoinsCount"));
     }
 
     public void ToGame (){

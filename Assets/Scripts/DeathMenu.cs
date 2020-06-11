@@ -10,7 +10,7 @@ public class DeathMenu : MonoBehaviour  {
     public Image backgroundImage;
     private bool isShown = false;
     private float transition = 0.0f;
-    [SerializeField] private GameObject scoreTextField; 
+    [SerializeField] private GameObject PlayerUI; 
     
     void Start()    {
         gameObject.SetActive(false);
@@ -27,7 +27,7 @@ public class DeathMenu : MonoBehaviour  {
 
     public void ToggleEndMenu(float score){
 
-        scoreTextField.SetActive(false);
+        PlayerUI.SetActive(false);
         gameObject.SetActive(true); 
         ScoreText.text  = ((int)score).ToString();
         isShown         = true;
